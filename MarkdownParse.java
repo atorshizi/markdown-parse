@@ -16,24 +16,15 @@ public class MarkdownParse {
                 break;
             }
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
-            if (nextCloseBracket < 0){
-                break;
-            }
             int openParen = markdown.indexOf("(", nextCloseBracket);
-            if (openParen < 0){
-                break;
-            }
             int closeParen = markdown.indexOf(")", openParen);
-            if (closeParen < 0){
-                break;
-            }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
         }
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
-        //args[0] = "test-file.md";
+		//args[0] = "test-file.md";
 		Path fileName = Path.of("test-file.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = getLinks(contents);
