@@ -27,10 +27,10 @@ public class MarkdownParse {
             if (closeParen < 0){
                 break;
             }
-            if (!markdown.substring(openParen+1, closeParen).contains(".jpg") && !markdown.substring(openParen+1, closeParen).contains(".png")){
+            //if (!markdown.substring(openParen+1, closeParen).contains(".jpg") && !markdown.substring(openParen+1, closeParen).contains(".png")){
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
                 currentIndex = closeParen + 1;
-            }
+            //}
             currentIndex = closeParen + 1;
         }
         return toReturn;
