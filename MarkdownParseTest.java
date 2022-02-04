@@ -17,7 +17,7 @@ public class MarkdownParseTest {
     public void setUp(){
         file1.add("https://something.com");
         file1.add("some-page.html");
-        file1.add("");
+        // file1.add("");
         file1.add("www.google.com/test");
 
         file2.add("https://something.com");
@@ -29,11 +29,11 @@ public class MarkdownParseTest {
     }
     @Test
     public void TestGetLink() throws IOException{
-        Path fileName = Path.of("test-file2.md");
+        Path fileName = Path.of("C:\\Users\\ators\\Documents\\(1) UCSD Stuff\\2ND YEAR\\CLASSES\\2-CSE15L\\markdown-parse\\test-file2.md");
 	    String contents = Files.readString(fileName);
         assertEquals(MarkdownParse.getLinks(contents), file2);
         
-        Path fileName2 = Path.of("test-file.md");
+        Path fileName2 = Path.of("C:\\Users\\ators\\Documents\\(1) UCSD Stuff\\2ND YEAR\\CLASSES\\2-CSE15L\\markdown-parse\\test-file.md");
 	    String contents2 = Files.readString(fileName2);
         assertEquals(MarkdownParse.getLinks(contents2), file1);
     }

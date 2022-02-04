@@ -5,7 +5,7 @@
 [third link]()
 [third link](www.google.com/test)
 the following is not a link...
-"[5th link (www.linklink.com)"
-![img](pic.jpg)
+"[5th link (www.linklink.com)"5
+
 
 extra test....

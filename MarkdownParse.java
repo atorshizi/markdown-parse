@@ -21,17 +21,22 @@ public class MarkdownParse {
                 return toReturn;
             }
             if(nextOpenBracket==0){
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                if (openParen!=closeParen-1){
+                     toReturn.add(markdown.substring(openParen + 1, closeParen));
+                }
                 currentIndex = closeParen + 1;
                 System.out.println(currentIndex);
             }
             else{
-                if(markdown.charAt(nextOpenBracket-1)==ImageIndicator){
+                if(markdown.charAt(nextOpenBracket-1) == (ImageIndicator)){
                     currentIndex = closeParen + 1;
                     System.out.println(currentIndex);
                 }
                 else{
-                    toReturn.add(markdown.substring(openParen + 1, closeParen));
+                    System.out.println("this" + nextCloseBracket + markdown.charAt(nextOpenBracket-1));
+                    if (openParen!=closeParen-1){
+                        toReturn.add(markdown.substring(openParen + 1, closeParen));
+                   }
                     currentIndex = closeParen + 1;
                     System.out.println(currentIndex);
                 }
