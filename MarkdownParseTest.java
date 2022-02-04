@@ -27,14 +27,14 @@ public class MarkdownParseTest {
     public void addition() {
         assertEquals(2, 1 + 1);
     }
-    @Test
-    public void TestGetLink() throws IOException{
-        Path fileName = Path.of("C:\\Users\\ators\\Documents\\(1) UCSD Stuff\\2ND YEAR\\CLASSES\\2-CSE15L\\markdown-parse\\test-file2.md");
-	    String contents = Files.readString(fileName);
-        assertEquals(MarkdownParse.getLinks(contents), file2);
+    // @Test
+    // public void TestGetLink() throws IOException{
+    //     Path fileName = Path.of("C:\\Users\\ators\\Documents\\(1) UCSD Stuff\\2ND YEAR\\CLASSES\\2-CSE15L\\markdown-parse\\test-file2.md");
+	//     String contents = Files.readString(fileName);
+    //     assertEquals(MarkdownParse.getLinks(contents), file2);
         
-        Path fileName2 = Path.of("C:\\Users\\ators\\Documents\\(1) UCSD Stuff\\2ND YEAR\\CLASSES\\2-CSE15L\\markdown-parse\\test-file.md");
-	    String contents2 = Files.readString(fileName2);
-        assertEquals(MarkdownParse.getLinks(contents2), file1);
-    }
+    //     Path fileName2 = Path.of("C:\\Users\\ators\\Documents\\(1) UCSD Stuff\\2ND YEAR\\CLASSES\\2-CSE15L\\markdown-parse\\test-file.md");
+	//     String contents2 = Files.readString(fileName2);
+    //     assertEquals(MarkdownParse.getLinks(contents2), file1);
+    // }
 }
