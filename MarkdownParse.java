@@ -10,34 +10,41 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then take up to
         // the next )
         int currentIndex = 0;
+        char ImageIndicator='!';
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
-            if (nextOpenBracket < 0){
-                break;
-            }
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
-            if (nextCloseBracket < 0){
-                break;
-            }
             int openParen = markdown.indexOf("(", nextCloseBracket);
-            if (openParen < 0){
-                break;
-            }
             int closeParen = markdown.indexOf(")", openParen);
-            if (closeParen < 0){
-                break;
+            if(nextOpenBracket==-1||nextCloseBracket==-1||openParen==-1||closeParen==-1
+            ||markdown.charAt(nextCloseBracket+1)!='('){
+                return toReturn;
             }
-            //if (!markdown.substring(openParen+1, closeParen).contains(".jpg") && !markdown.substring(openParen+1, closeParen).contains(".png")){
+            if(nextOpenBracket==0){
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
                 currentIndex = closeParen + 1;
-            //}
-            currentIndex = closeParen + 1;
+                System.out.println(currentIndex);
+            }
+            else{
+                if(markdown.charAt(nextOpenBracket-1)==ImageIndicator){
+                
+                    currentIndex = closeParen + 1;
+                    System.out.println(currentIndex);
+                }
+                else{
+                    toReturn.add(markdown.substring(openParen + 1, closeParen));
+                    currentIndex = closeParen + 1;
+                    System.out.println(currentIndex);
+                }
+
+            }
+            
+            
         }
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
-		//args[0] = "test-file.md";
-		Path fileName = Path.of("test-file.md");
+		Path fileName = Path.of(args[0]);
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = getLinks(contents);
         System.out.println(links);
