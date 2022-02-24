@@ -36,4 +36,79 @@ public class MarkdownParseTest {
 	    String contents2 = Files.readString(fileName2);
         assertEquals(MarkdownParse.getLinks(contents2), file1);
     }
+
+
+    //Lab Report 4 Tests
+    @Test
+    public void TestOurSnippit1() throws IOException{
+        Path fileName = Path.of(PATH + "snip1.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("`google.com");
+        expected.add("google.com");
+        expected.add("ucsd.edu");
+        ArrayList<String> actual = MarkdownParse.getLinks(contents);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void TestReviewedSnippit1() throws IOException{
+        Path fileName = Path.of(PATH + "snip1.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("`google.com");
+        expected.add("google.com");
+        expected.add("ucsd.edu");
+        ArrayList<String> actual = MarkdownParseReviewed.getLinks(contents);
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void TestOurSnippit2() throws IOException{
+        Path fileName = Path.of(PATH + "snip2.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("a.com");
+        expected.add("a.com(())");
+        expected.add("example.com");
+        ArrayList<String> actual = MarkdownParse.getLinks(contents);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void TestReviewedSnippit2() throws IOException{
+        Path fileName = Path.of(PATH + "snip2.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("a.com");
+        expected.add("a.com(())");
+        expected.add("example.com");
+        ArrayList<String> actual = MarkdownParseReviewed.getLinks(contents);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void TestOurSnippit3() throws IOException{
+        Path fileName = Path.of(PATH + "snip3.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("https://www.twitter.com");
+        expected.add("https://ucsd-cse15l-w22.github.io/");
+        expected.add("https://cse.ucsd.edu/");
+        ArrayList<String> actual = MarkdownParse.getLinks(contents);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void TestReviewedSnippit3() throws IOException{
+        Path fileName = Path.of(PATH + "snip3.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("https://www.twitter.com");
+        expected.add("https://ucsd-cse15l-w22.github.io/");
+        expected.add("https://cse.ucsd.edu/");
+        ArrayList<String> actual = MarkdownParseReviewed.getLinks(contents);
+        assertEquals(expected, actual);
+    }
 }
