@@ -1,14 +1,13 @@
 import static org.junit.Assert.*;
-
 import java.beans.Transient;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
 import org.junit.*;
 import java.util.*;
 
 public class MarkdownParseTest {
+    String PATH = "C:\\Users\\ators\\Documents\\(1) UCSD Stuff\\2ND YEAR\\CLASSES\\2-CSE15L\\markdown-parse\\";
     ArrayList<String> file1 = new ArrayList<>();
     ArrayList<String> file2 = new ArrayList<>();
     ArrayList<String> file3 = new ArrayList<>();
@@ -29,11 +28,11 @@ public class MarkdownParseTest {
     }
     @Test
     public void TestGetLink() throws IOException{
-        Path fileName = Path.of("test-file2.md");
+        Path fileName = Path.of(PATH + "test-file2.md");
 	    String contents = Files.readString(fileName);
         assertEquals(MarkdownParse.getLinks(contents), file2);
         
-        Path fileName2 = Path.of("test-file.md");
+        Path fileName2 = Path.of(PATH + "test-file.md");
 	    String contents2 = Files.readString(fileName2);
         assertEquals(MarkdownParse.getLinks(contents2), file1);
     }
